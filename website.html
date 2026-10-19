@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AARNA ART - कस्टम पोर्ट्रेट आर्ट</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        .logo span {
+            color: #e67e22;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #e67e22;
+        }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+        .hero-content h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+        .btn {
+            display: inline-block;
+            background: #e67e22;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #d35400;
+        }
+        section {
+            padding: 70px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .gallery-info {
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #444;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .price-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-top: 5px solid #e67e22;
+        }
+        .price-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        .price {
+            font-size: 28px;
+            color: #e67e22;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .price-card ul {
+            list-style: none;
+            margin-bottom: 25px;
+            color: #666;
+            text-align: left;
+            padding-left: 15px;
+        }
+        .price-card ul li {
+            margin-bottom: 8px;
+        }
+        .order-container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 700px;
+            margin: auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        .submit-btn {
+            background: #27ae60;
+            color: #fff;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .submit-btn:hover {
+            background: #219653;
+        }
+        .delivery-note {
+            background: #e8f8f5;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #0e6251;
+        }
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 28px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">AARNA <span>ART</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">होम</a></li>
+                <li><a href="#gallery">गैलरी</a></li>
+                <li><a href="#pricing">प्राइसिंग</a></li>
+                <li><a href="#order">ऑर्डर करें</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero" style="margin-top:0;">
+        <div class="hero-content">
+            <h1>AARNA ART - रियलिस्टिक पोर्ट्रेट्स</h1>
+            <p>ऑनलाइन ऑर्डर करें, घर बैठे सुरक्षित होम डिलीवरी पाएं।</p>
+            <a href="#order" class="btn">अभी ऑर्डर बुक करें</a>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2 class="section-title">मेरी कलाकृतियां (Gallery)</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80" alt="Sketch 1">
+                <div class="gallery-info">चारकोल पोर्ट्रेट (Charcoal Portrait)</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80" alt="Sketch 2">
+                <div class="gallery-info">कपल स्केच (Couple Sketch)</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80" alt="Sketch 3">
+                <div class="gallery-info">रियलिस्टिक पेंसिल वर्क (Realistic Pencil)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" style="background: #fff;">
+        <h2 class="section-title">साइज और प्राइस लिस्ट (Pricing)</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Single Portrait (A4 Size)</h3>
+                <div class="price">₹1,499</div>
+                <ul>
+                    <li>✓ 1 व्यक्ति का पोर्ट्रेट</li>
+                    <li>✓ हाई क्वालिटी पेपर</li>
+                    <li>✓ सुरक्षित कूरियर डिलीवरी</li>
+                    <li>✓ ऑनलाइन पेमेंट उपलब्ध</li>
+                </ul>
+                <a href="#order" class="btn">चुनें</a>
+            </div>
+            <div class="price-card" style="border-top-color: #27ae60;">
+                <h3>Couple / Family (A3 Size)</h3>
+                <div class="price">₹2,999</div>
+                <ul>
+                    <li>✓ 2 से ज्यादा चेहरे</li>
+                    <li>✓ प्रीमियम चारकोल शेडिंग</li>
+                    <li>✓ होम कूरियर पिकअप & डिलीवरी</li>
+                    <li>✓ ऑनलाइन पेमेंट उपलब्ध</li>
+                </ul>
+                <a href="#order" class="btn" style="background: #27ae60;">चुनें</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order / Contact Section -->
+    <section id="order">
+        <h2 class="section-title">AARNA ART - ऑनलाइन ऑर्डर फॉर्म</h2>
+        <div class="order-container">
+            <div class="delivery-note">
+                🚚 <strong>ऑर्डर और डिलीवरी प्रक्रिया:</strong> फॉर्म सबमिट करने के बाद कूरियर बॉय सीधे ग्राहक के पते पर डिलीवर करेगा।
+            </div>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="name">ग्राहक का पूरा नाम</label>
+                    <input type="text" id="name" placeholder="नाम दर्ज करें Name in English" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">मोबाइल / व्हाट्सएप नंबर</label>
+                    <input type="tel" id="phone" placeholder="फोन नंबर दर्ज करें" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">पूरा डिलीवरी पता (Address in English)</label>
+                    <textarea id="address" placeholder="गली, मकान नंबर, शहर, पिनकोड सहित पूरा पता लिखें..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="size">पोर्ट्रेट का साइज चुनें</label>
+                    <select id="size">
+                        <option value="A4 Single - ₹1499">A4 Size (Single Portrait) - ₹1,499</option>
+                        <option value="A3 Couple - ₹2999">A3 Size (Couple/Family) - ₹2,999</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">ऑर्डर कन्फर्म करें और व्हाट्सएप पर भेजें</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 AARNA ART. सर्वाधिकार सुरक्षित।<br>हमारी कला, हमारी पहचान।</p>
+    </footer>
+
+    <!-- JavaScript to handle WhatsApp redirect with address -->
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let name = document.getElementById('name').value;
+            let phone = document.getElementById('phone').value;
+            let address = document.getElementById('address').value;
+            let size = document.getElementById('size').value;
+
+            // अपना व्हाट्सएप नंबर यहाँ डालें (91 के साथ देश का कोड लगाएं)
+            let myWhatsAppNumber = "919251646464"; 
+
+            let whatsappMessage = `नमस्ते, AARNA ART से नया ऑर्डर है!%0A%0A*नाम:* ${name}%0A*फोन:* ${phone}%0A*डिलीवरी पता:* ${address}%0A*साइज:* ${size}%0A%0Aकृपया ऑनलाइन पेमेंट और डिलीवरी की प्रक्रिया आगे बढ़ाएं।`;
+
+            let whatsappURL = `https://wa.me/${myWhatsAppNumber}?text=${whatsappMessage}`;
+            
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+</body>
+</html>
